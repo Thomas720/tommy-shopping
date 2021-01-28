@@ -5,6 +5,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -12,12 +13,19 @@ connectDB()
 
 const app = express()
 
+// Allow us to accept json data in body 
+app.use(express.json())
+
 // For test Purpose(server)
 app.get('/', function (req, res) {
   res.send('API is Running...')
 })
+
 // Main route
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
+
+
 // Middleware
 app.use(notFound)
 app.use(errorHandler)
