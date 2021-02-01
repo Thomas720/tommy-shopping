@@ -14,8 +14,8 @@ connectDB()
 const app = express()
 
 // Allow us to accept json data in body 
-// app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.json())
+// app.use(express.urlencoded())
 // app.use(bodyParser.json())
 
 // For test Purpose(server)
