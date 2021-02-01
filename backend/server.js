@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
-import bodyParser from 'body-parser'
+// import bodyParser from 'body-parser'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 
@@ -15,8 +15,8 @@ const app = express()
 
 // Allow us to accept json data in body 
 // app.use(express.json())
-// app.use(express.urlencoded())
-app.use(bodyParser.json())
+app.use(express.urlencoded())
+// app.use(bodyParser.json())
 
 // For test Purpose(server)
 app.get('/', function (req, res) {
